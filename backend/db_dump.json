@@ -1,0 +1,347 @@
+{
+  "studentsCount": [
+    {
+      "count": "50"
+    }
+  ],
+  "studentRecords": [
+    {
+      "id": "d229e927-11c4-4ac9-95e8-3cada062e1f9",
+      "user_id": "13794d57-c914-45fa-8ee4-e55e6b3c6f64",
+      "enrollment_number": "STU1001",
+      "batch_id": null,
+      "current_semester_id": null,
+      "current_section_id": null,
+      "date_of_birth": "2000-08-09T18:30:00.000Z",
+      "department": "Electronic Engineering"
+    },
+    {
+      "id": "7161890c-a8a2-4469-8cda-b92af4fcfae7",
+      "user_id": "818396c5-8a58-4287-9cf2-4c2e8e41e8a9",
+      "enrollment_number": "STU1002",
+      "batch_id": null,
+      "current_semester_id": null,
+      "current_section_id": null,
+      "date_of_birth": "2006-11-07T18:30:00.000Z",
+      "department": "Mechanical Engineering"
+    },
+    {
+      "id": "b868f2bf-73cd-4a8e-a287-5150594531f1",
+      "user_id": "f719d8bc-fbf8-417f-a4d0-c478a8733a11",
+      "enrollment_number": "STU1003",
+      "batch_id": null,
+      "current_semester_id": null,
+      "current_section_id": null,
+      "date_of_birth": "2003-12-05T18:30:00.000Z",
+      "department": "Computer Science"
+    },
+    {
+      "id": "9ec7ed6e-5678-4a3e-98bf-4f32f74841e1",
+      "user_id": "bb469e69-478c-4045-9c20-639cc5ef3a52",
+      "enrollment_number": "STU1004",
+      "batch_id": null,
+      "current_semester_id": null,
+      "current_section_id": null,
+      "date_of_birth": "2003-11-11T18:30:00.000Z",
+      "department": "Business Admin"
+    },
+    {
+      "id": "49ae0558-def3-454f-be3d-4a326a328bc7",
+      "user_id": "f93820d7-e1bc-4918-be12-533cf3b1ef78",
+      "enrollment_number": "STU1005",
+      "batch_id": null,
+      "current_semester_id": null,
+      "current_section_id": null,
+      "date_of_birth": "2004-07-10T18:30:00.000Z",
+      "department": "Mechanical Engineering"
+    }
+  ],
+  "courses": [
+    {
+      "id": "247e7f91-51a2-44ee-88a7-f3e92a29bbb2",
+      "name": "Introduction to Computer Science",
+      "department": "Computer Science",
+      "credits": 4,
+      "is_active": true,
+      "created_at": "2026-04-03T18:38:49.393Z"
+    },
+    {
+      "id": "9dc7715c-f425-4ac7-af97-e964c787a466",
+      "name": "Data Structures and Algorithms",
+      "department": "Computer Science",
+      "credits": 4,
+      "is_active": true,
+      "created_at": "2026-04-03T18:38:49.393Z"
+    },
+    {
+      "id": "4c82cc16-f3b0-4ffa-bce8-f5a4d6a7da3f",
+      "name": "Database Management Systems",
+      "department": "Information Technology",
+      "credits": 3,
+      "is_active": true,
+      "created_at": "2026-04-03T18:38:49.393Z"
+    }
+  ],
+  "users": [
+    {
+      "id": "fb30d63a-0572-4dc7-8e0e-7fc45940ef06",
+      "name": "Dr. Smith",
+      "email": "faculty@college.com"
+    },
+    {
+      "id": "13794d57-c914-45fa-8ee4-e55e6b3c6f64",
+      "name": "Student 1",
+      "email": "student1@college.com"
+    },
+    {
+      "id": "818396c5-8a58-4287-9cf2-4c2e8e41e8a9",
+      "name": "Student 2",
+      "email": "student2@college.com"
+    },
+    {
+      "id": "f719d8bc-fbf8-417f-a4d0-c478a8733a11",
+      "name": "Student 3",
+      "email": "student3@college.com"
+    },
+    {
+      "id": "bb469e69-478c-4045-9c20-639cc5ef3a52",
+      "name": "Student 4",
+      "email": "student4@college.com"
+    },
+    {
+      "id": "f93820d7-e1bc-4918-be12-533cf3b1ef78",
+      "name": "Student 5",
+      "email": "student5@college.com"
+    },
+    {
+      "id": "1648b785-c85f-4d31-853b-da65596ec401",
+      "name": "Student 6",
+      "email": "student6@college.com"
+    },
+    {
+      "id": "7d44f651-32ae-4da4-beab-2b0fd5327d3a",
+      "name": "Student 7",
+      "email": "student7@college.com"
+    },
+    {
+      "id": "8abff805-07ca-4a52-a623-f0beea441cc1",
+      "name": "Student 8",
+      "email": "student8@college.com"
+    },
+    {
+      "id": "3931f2d0-e939-4921-b5dd-c75bfbee1e8a",
+      "name": "Student 9",
+      "email": "student9@college.com"
+    },
+    {
+      "id": "7f0aeb5b-a1c8-4aa0-ae27-c3a75b971a7a",
+      "name": "Student 10",
+      "email": "student10@college.com"
+    },
+    {
+      "id": "bb744ce9-255c-414d-b9dd-8c90ef515f6f",
+      "name": "System Admin",
+      "email": "admin@college.com"
+    },
+    {
+      "id": "a9f59363-207c-4db5-8dc3-4e794266be6c",
+      "name": "Student 11",
+      "email": "student11@college.com"
+    },
+    {
+      "id": "a9174ddf-7c4e-4e15-a382-62e19a8e4776",
+      "name": "Student 12",
+      "email": "student12@college.com"
+    },
+    {
+      "id": "48a9231d-9cbd-44b1-bc9f-99d3cf18838c",
+      "name": "Student 13",
+      "email": "student13@college.com"
+    },
+    {
+      "id": "aed4f415-55de-4e6d-9f8b-fdcd30caf1c7",
+      "name": "Student 14",
+      "email": "student14@college.com"
+    },
+    {
+      "id": "c2a1bbcf-152f-43bd-90df-5f0c9ffc61e4",
+      "name": "Student 15",
+      "email": "student15@college.com"
+    },
+    {
+      "id": "908ffb03-8c01-4426-9bac-b05638e4c835",
+      "name": "Student 16",
+      "email": "student16@college.com"
+    },
+    {
+      "id": "b6687cbf-a113-4180-816b-2989729d19b8",
+      "name": "Student 17",
+      "email": "student17@college.com"
+    },
+    {
+      "id": "7eac3c45-78aa-4310-a634-c997216bb49e",
+      "name": "Student 18",
+      "email": "student18@college.com"
+    },
+    {
+      "id": "9f16eb36-2c7d-4928-97ad-6572a2f16d41",
+      "name": "Student 19",
+      "email": "student19@college.com"
+    },
+    {
+      "id": "e9419088-4201-4b53-814f-b688580fa589",
+      "name": "Student 20",
+      "email": "student20@college.com"
+    },
+    {
+      "id": "cc5e9dd3-1c91-4764-9a7a-6af9dcc5abe3",
+      "name": "Student 21",
+      "email": "student21@college.com"
+    },
+    {
+      "id": "689da971-6d17-4d02-b283-fd4dcf3d1b3e",
+      "name": "Student 22",
+      "email": "student22@college.com"
+    },
+    {
+      "id": "d750ca36-5413-4f5f-ad36-2caf30815351",
+      "name": "Student 23",
+      "email": "student23@college.com"
+    },
+    {
+      "id": "f253974e-9365-46f3-9508-32d6c26e828f",
+      "name": "Student 24",
+      "email": "student24@college.com"
+    },
+    {
+      "id": "a9430b1e-251b-4950-aa65-c90101e3d30b",
+      "name": "Student 25",
+      "email": "student25@college.com"
+    },
+    {
+      "id": "46f673ba-e394-4098-83d6-6c274a4f9821",
+      "name": "Student 26",
+      "email": "student26@college.com"
+    },
+    {
+      "id": "146bffe0-706e-4d79-ad7a-7fe7531f8abd",
+      "name": "Student 27",
+      "email": "student27@college.com"
+    },
+    {
+      "id": "698ffd2d-9d18-47c3-ae00-e4830167313e",
+      "name": "Student 28",
+      "email": "student28@college.com"
+    },
+    {
+      "id": "7c500f66-4911-43e4-8ef5-48b25d19c485",
+      "name": "Student 29",
+      "email": "student29@college.com"
+    },
+    {
+      "id": "bffbfa07-6d50-4349-bc77-37efd604f4da",
+      "name": "Student 30",
+      "email": "student30@college.com"
+    },
+    {
+      "id": "051fc0f9-eeea-4b3f-be3d-53fecada3464",
+      "name": "Student 31",
+      "email": "student31@college.com"
+    },
+    {
+      "id": "500e7272-d47f-48cd-a202-8c7bdb148453",
+      "name": "Student 32",
+      "email": "student32@college.com"
+    },
+    {
+      "id": "2dfad38f-02cc-410a-847e-7c687e42893c",
+      "name": "Student 33",
+      "email": "student33@college.com"
+    },
+    {
+      "id": "37b3be59-ea18-47fb-8eba-f6b52a5c48c0",
+      "name": "Student 34",
+      "email": "student34@college.com"
+    },
+    {
+      "id": "eb983271-3e0d-4bc6-ac46-dc8b45768435",
+      "name": "Student 35",
+      "email": "student35@college.com"
+    },
+    {
+      "id": "7b6d013a-72d3-4da8-b8df-a6a7232f71e7",
+      "name": "Student 36",
+      "email": "student36@college.com"
+    },
+    {
+      "id": "8dccf41c-5409-4408-8b99-6163d09b798d",
+      "name": "Student 37",
+      "email": "student37@college.com"
+    },
+    {
+      "id": "9f6ea99c-4452-46c0-8460-05a1acc73b4c",
+      "name": "Student 38",
+      "email": "student38@college.com"
+    },
+    {
+      "id": "e2efffad-16ab-4fa1-843f-58e591ee0532",
+      "name": "Student 39",
+      "email": "student39@college.com"
+    },
+    {
+      "id": "1b717eb5-69be-4d32-9230-025b72033c69",
+      "name": "Student 40",
+      "email": "student40@college.com"
+    },
+    {
+      "id": "76deeef7-1412-48a5-9163-46e84322a81f",
+      "name": "Student 41",
+      "email": "student41@college.com"
+    },
+    {
+      "id": "0e70f65c-373c-4261-a51d-13d51fa21fec",
+      "name": "Student 42",
+      "email": "student42@college.com"
+    },
+    {
+      "id": "0406297d-d714-4aa5-807f-4d44a6b9aaa0",
+      "name": "Student 43",
+      "email": "student43@college.com"
+    },
+    {
+      "id": "0d2d0969-8d3f-4a7e-8101-461125a256a1",
+      "name": "Student 44",
+      "email": "student44@college.com"
+    },
+    {
+      "id": "d5c44440-b340-4842-8182-3862b67c079c",
+      "name": "Student 45",
+      "email": "student45@college.com"
+    },
+    {
+      "id": "f52af890-f3e3-4892-bf66-5733bf0ff91d",
+      "name": "Student 46",
+      "email": "student46@college.com"
+    },
+    {
+      "id": "3ad0ee12-e46f-4e18-a87e-a6f63685629f",
+      "name": "Student 47",
+      "email": "student47@college.com"
+    },
+    {
+      "id": "eaf4a44d-579d-4c22-9838-001b44b2ecc0",
+      "name": "Student 48",
+      "email": "student48@college.com"
+    },
+    {
+      "id": "59c47574-b3ef-4c7d-b563-20ed19286e22",
+      "name": "Student 49",
+      "email": "student49@college.com"
+    },
+    {
+      "id": "ce87d293-3a57-418a-a6eb-518c173b761d",
+      "name": "Student 50",
+      "email": "student50@college.com"
+    }
+  ]
+}

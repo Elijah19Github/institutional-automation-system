@@ -1,0 +1,69 @@
+/* About.css - Extracted Styles for About.jsx */
+
+.about-wrapper {
+  @apply max-w-5xl mx-auto px-6 py-20;
+}
+
+.about-title {
+  @apply text-4xl md:text-5xl font-extrabold text-blue-700 drop-shadow-sm tracking-tight mb-8 text-center md:text-left;
+}
+
+.about-prose {
+  
+}
+
+.about-desc {
+  @apply text-textSecondary text-lg mb-6 leading-relaxed;
+}
+
+.about-subtitle {
+  @apply text-2xl font-bold text-textPrimary mt-10 mb-4;
+}
+
+.about-list {
+  @apply space-y-4 text-textSecondary;
+}
+
+.about-list-item {
+  @apply flex items-start gap-3;
+}
+
+.about-check {
+  @apply text-accent mt-1;
+}
+
+.about-logo-section {
+  @apply mt-24 pt-16 border-t border-border/50 text-center;
+}
+
+.about-logo-wrapper {
+  @apply mb-20;
+}
+
+.about-logo-img {
+  @apply w-32 h-32 mx-auto object-contain drop-shadow-xl hover:scale-105 transition-transform;
+}
+
+.about-logo-title {
+  @apply text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent mt-6;
+}
+
+.about-cards-grid {
+  @apply grid md:grid-cols-2 gap-12 text-left;
+}
+
+.about-card {
+  @apply p-10 rounded-3xl bg-surface border border-border/50 shadow-md relative overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all duration-300;
+}
+
+.about-card-accent {
+  @apply absolute top-0 left-0 w-2 h-full bg-primary group-hover:w-3 transition-all duration-300;
+}
+
+.about-card-title {
+  @apply text-3xl font-bold text-primary mb-5 flex items-center gap-4;
+}
+
+.about-card-text {
+  @apply text-textSecondary text-lg leading-relaxed pl-2;
+}

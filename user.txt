@@ -1,0 +1,27 @@
+# Institutional Automation System - Official DEMO Credentials
+
+## 🏛️ ADMIN ACCESS
+Email: admin@college.com
+Password: admin123
+Role: Super Admin
+Dashboard: Academic Infrastructure, Course Management, Global Analytics
+
+## 👨‍🏫 FACULTY ACCESS
+- Dr. Sarah (MCA-A): fac_mca_a@college.com / password123
+- Dr. Michael (MCA-B): fac_mca_b@college.com / password123
+Role: Faculty
+Logic: Sarah handles Odd Semesters (1, 3); Michael handles Even (2, 4).
+
+## 🎓 STUDENT ACCESS (10 Accounts)
+- Accounts: student1@college.com to student10@college.com
+- Password: password123
+- Data: 4 full semesters of history.
+
+### 🤖 AI RISK PROFILES (FOR DEMO)
+- Student 1-3: LOW RISK (High Performers)
+- Student 4-6: MEDIUM RISK (Average Attendance/Marks)
+- Student 7-10: HIGH RISK (Low Attendance/Marks < 50%) - Watch for AI Alerts!
+
+---
+Note: The system has been reset for a clean slate. 
+Use these credentials for the college presentation.

@@ -10,8 +10,7 @@ const Admissions = () => {
     const [error, setError] = useState(null);
 
     // Setup Data for Enrollment
-    const [setupData, setSetupData] = useState({ batches: [], semesters: [] });
-    const [sections, setSections] = useState([]);
+    // (Removed unused setupData and sections states)
 
     // Action States
     const [isActionLoading, setIsActionLoading] = useState(false);
@@ -47,22 +46,10 @@ const Admissions = () => {
             const provData = await provRes.json();
             if (provData.success) setProvisionals(provData.data);
 
-            // Fetch Setup Data
-            const setupRes = await fetch('http://localhost:5000/api/academic/setup', {
-                headers: { 'Authorization': `Bearer ${token}` }
-            });
-            const setupResData = await setupRes.json();
-            if (setupResData.success) setSetupData(setupResData.data);
-
-            // Fetch Sections
-            const textRes = await fetch('http://localhost:5000/api/academic/sections', {
-                headers: { 'Authorization': `Bearer ${token}` }
-            });
-            const secData = await textRes.json();
-            if (secData.success) setSections(secData.data);
+            // (Setup and Sections removed)
 
         } catch (err) {
-            console.error("Fetch Data Error:", err);
+            console.error("Fetch Data Error:", err.message);
             setError("Failed to fetch dashboard data. Please check your connection.");
         } finally {
             setLoading(false);
@@ -71,6 +58,7 @@ const Admissions = () => {
 
     useEffect(() => {
         fetchData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token]);
 
     const handleApplicationAction = async (id, status) => {
@@ -100,6 +88,7 @@ const Admissions = () => {
                 showToast(data.message || 'Error updating application.', 'error');
             }
         } catch (err) {
+            console.error("Action error:", err.message);
             showToast('Network error during operation.', 'error');
         } finally {
             setIsActionLoading(false);
@@ -133,6 +122,7 @@ const Admissions = () => {
                 showToast(data.message || 'Error processing enrollment.', 'error');
             }
         } catch (err) {
+            console.error("Enrollment Error:", err.message);
             showToast('Network error during enrollment.', 'error');
         } finally {
             setIsActionLoading(false);
@@ -142,8 +132,8 @@ const Admissions = () => {
 
     return (
         <div className="space-y-6 relative">
-            <h1 className="text-3xl font-bold text-slate-100">Admissions Core Dashboard</h1>
-            <p className="text-slate-400">Manage incoming student applications, fee processing, and final enrollment allocation.</p>
+            <h1 className="text-3xl font-bold text-foreground">Admissions Core Dashboard</h1>
+            <p className="text-textSecondary">Manage incoming student applications, fee processing, and final enrollment allocation.</p>
 
             {/* Toast Notification */}
             {toast.show && (
@@ -154,22 +144,22 @@ const Admissions = () => {
             )}
 
             {/* Tabs */}
-            <div className="flex border-b border-slate-700/50">
+            <div className="flex border-b border-border/50">
                 <button
                     onClick={() => setActiveTab('applications')}
-                    className={`py-3 px-6 font-medium text-sm transition-colors border-b-2 ${activeTab === 'applications' ? 'border-indigo-500 text-indigo-400 bg-indigo-500/10' : 'border-transparent text-slate-400 hover:text-slate-300 hover:bg-slate-800/50'}`}
+                    className={`py-3 px-6 font-medium text-sm transition-colors border-b-2 ${activeTab === 'applications' ? 'border-primary text-primary bg-primary/10' : 'border-transparent text-textSecondary hover:text-textPrimary hover:bg-surface/50'}`}
                 >
                     New Applications
                 </button>
                 <button
                     onClick={() => setActiveTab('provisional')}
-                    className={`py-3 px-6 font-medium text-sm transition-colors border-b-2 ${activeTab === 'provisional' ? 'border-indigo-500 text-indigo-400 bg-indigo-500/10' : 'border-transparent text-slate-400 hover:text-slate-300 hover:bg-slate-800/50'}`}
+                    className={`py-3 px-6 font-medium text-sm transition-colors border-b-2 ${activeTab === 'provisional' ? 'border-primary text-primary bg-primary/10' : 'border-transparent text-textSecondary hover:text-textPrimary hover:bg-surface/50'}`}
                 >
-                    Awaiting Enrollment (Provisional)
+                    Awaiting Enrollment / Processing
                 </button>
                 <button
                     onClick={() => setActiveTab('logs')}
-                    className={`py-3 px-6 font-medium text-sm transition-colors border-b-2 ${activeTab === 'logs' ? 'border-indigo-500 text-indigo-400 bg-indigo-500/10' : 'border-transparent text-slate-400 hover:text-slate-300 hover:bg-slate-800/50'}`}
+                    className={`py-3 px-6 font-medium text-sm transition-colors border-b-2 ${activeTab === 'logs' ? 'border-primary text-primary bg-primary/10' : 'border-transparent text-textSecondary hover:text-textPrimary hover:bg-surface/50'}`}
                 >
                     Decision Audit Logs
                 </button>
@@ -177,47 +167,47 @@ const Admissions = () => {
 
             {loading ? (
                 <div className="flex justify-center py-20">
-                    <div className="animate-spin w-10 h-10 border-4 border-indigo-500 border-t-transparent rounded-full"></div>
+                    <div className="animate-spin w-10 h-10 border-4 border-primary border-t-transparent rounded-full"></div>
                 </div>
             ) : error ? (
                 <div className="bg-rose-500/10 border border-rose-500/20 text-rose-400 p-6 rounded-xl text-center">
                     ⚠️ {error}
                 </div>
             ) : (
-                <div className="bg-slate-800/50 backdrop-blur-md rounded-2xl border border-slate-700/50 p-1 shadow-xl">
+                <div className="bg-surface/50 backdrop-blur-md rounded-2xl border border-border/50 p-1 shadow-xl">
 
                     {/* Tab 1: New Applications */}
                     {activeTab === 'applications' && (
                         <div className="overflow-x-auto">
                             <table className="w-full text-left">
-                                <thead className="bg-[#1e293b] text-slate-300 text-sm border-b border-slate-700">
+                                <thead className="bg-surface text-textPrimary text-sm border-b border-border">
                                     <tr>
-                                        <th className="p-4 font-semibold rounded-tl-xl">Applicant</th>
-                                        <th className="p-4 font-semibold">Contact</th>
-                                        <th className="p-4 font-semibold">Degree / CGPA</th>
-                                        <th className="p-4 font-semibold text-center mt-1">Status</th>
+                                        <th className="p-4 font-semibold rounded-tl-xl text-left">Applicant</th>
+                                        <th className="p-4 font-semibold text-left">Program</th>
+                                        <th className="p-4 font-semibold text-left">Contact</th>
+                                        <th className="p-4 font-semibold text-left">Academic Info</th>
                                         <th className="p-4 font-semibold text-right rounded-tr-xl">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {applications.filter(a => a.status === 'pending').map(app => (
-                                        <tr key={app.id} className="border-b border-slate-700/50 hover:bg-slate-700/20 transition-colors">
+                                        <tr key={app.id} className="border-b border-border/50 hover:bg-secondary/20 transition-colors">
                                             <td className="p-4">
-                                                <div className="font-medium text-slate-200">{app.first_name} {app.last_name}</div>
-                                                <div className="text-xs text-slate-500 mt-0.5 max-w-[150px] truncate">{app.id}</div>
+                                                <div className="font-medium text-textPrimary">{app.first_name} {app.last_name}</div>
+                                                <div className="text-xs text-textSecondary mt-0.5 max-w-[150px] truncate">{app.id}</div>
                                             </td>
                                             <td className="p-4">
-                                                <div className="text-sm text-slate-300">{app.email}</div>
-                                                <div className="text-xs text-slate-500 mt-0.5">{app.phone || 'N/A'}</div>
-                                            </td>
-                                            <td className="p-4">
-                                                <div className="text-sm text-slate-300 font-mono">{app.previous_degree}</div>
-                                                <div className="text-xs font-bold text-emerald-400 mt-0.5">{app.previous_cgpa}</div>
-                                            </td>
-                                            <td className="p-4 text-center">
-                                                <span className="px-2.5 py-1 bg-amber-500/10 text-amber-500 border border-amber-500/20 rounded-md text-xs font-semibold uppercase tracking-wider">
-                                                    Pending
+                                                <span className="px-2.5 py-1 bg-primary/10 text-primary border border-primary/20 rounded-md text-xs font-bold uppercase tracking-wider">
+                                                    {app.course_interested || 'GEN'}
                                                 </span>
+                                            </td>
+                                            <td className="p-4">
+                                                <div className="text-sm text-textPrimary">{app.email}</div>
+                                                <div className="text-xs text-textSecondary mt-0.5">{app.phone || 'N/A'}</div>
+                                            </td>
+                                            <td className="p-4">
+                                                <div className="text-xs font-bold text-emerald-400">{app.previous_cgpa} %</div>
+                                                <div className="text-[10px] text-textSecondary uppercase tracking-tighter truncate max-w-[120px]">{app.previous_degree}</div>
                                             </td>
                                             <td className="p-4 text-right">
                                                 {selectedAppId === app.id ? (
@@ -226,7 +216,7 @@ const Admissions = () => {
                                                             <input
                                                                 type="number"
                                                                 placeholder="Fee Amount (e.g 55000)"
-                                                                className="w-40 bg-slate-900 border border-slate-600 rounded-lg px-3 py-1.5 text-sm text-slate-200 focus:outline-none focus:border-indigo-500"
+                                                                className="w-40 bg-background border border-border rounded-lg px-3 py-1.5 text-sm text-textPrimary focus:outline-none focus:border-primary"
                                                                 value={feeAmount}
                                                                 onChange={e => setFeeAmount(e.target.value)}
                                                             />
@@ -240,7 +230,7 @@ const Admissions = () => {
                                                         </div>
                                                         <button
                                                             onClick={() => setSelectedAppId(null)}
-                                                            className="text-xs text-slate-400 hover:text-slate-200 transition-colors"
+                                                            className="text-xs text-textSecondary hover:text-textPrimary transition-colors"
                                                         >
                                                             Cancel
                                                         </button>
@@ -249,7 +239,7 @@ const Admissions = () => {
                                                     <div className="flex items-center justify-end gap-2">
                                                         <button
                                                             onClick={() => setSelectedAppId(app.id)}
-                                                            className="bg-indigo-500/20 hover:bg-indigo-500 hover:text-white text-indigo-400 px-4 py-1.5 rounded-lg text-sm font-medium transition-colors border border-indigo-500/50"
+                                                            className="bg-primary/20 hover:bg-primary hover:text-white text-primary px-4 py-1.5 rounded-lg text-sm font-medium transition-colors border border-primary/50"
                                                         >
                                                             Accept
                                                         </button>
@@ -267,7 +257,7 @@ const Admissions = () => {
                                     ))}
                                     {applications.filter(a => a.status === 'pending').length === 0 && (
                                         <tr>
-                                            <td colSpan="5" className="p-8 text-center text-slate-500">
+                                            <td colSpan="5" className="p-8 text-center text-textSecondary">
                                                 <span className="text-4xl mb-3 block opacity-50">📬</span>
                                                 <p>No new pending applications.</p>
                                             </td>
@@ -282,105 +272,42 @@ const Admissions = () => {
                     {activeTab === 'provisional' && (
                         <div className="overflow-x-auto">
                             <table className="w-full text-left">
-                                <thead className="bg-[#1e293b] text-slate-300 text-sm border-b border-slate-700">
+                                <thead className="bg-surface text-textPrimary text-sm border-b border-border">
                                     <tr>
-                                        <th className="p-4 font-semibold rounded-tl-xl align-top">Student</th>
-                                        <th className="p-4 font-semibold align-top">Fee Details</th>
-                                        <th className="p-4 font-semibold align-top" colSpan="2">Complete Enrollment Mapping</th>
+                                        <th className="p-4 font-semibold rounded-tl-xl align-top text-left">Student Profile</th>
+                                        <th className="p-4 font-semibold align-top text-left">Program</th>
+                                        <th className="p-4 font-semibold align-top text-left">Fee Status</th>
+                                        <th className="p-4 font-semibold align-top text-right rounded-tr-xl w-32">Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {provisionals.filter(p => !p.is_paid).map(prov => (
-                                        <tr key={prov.id} className="border-b border-slate-700/50 hover:bg-slate-700/20 transition-colors">
-                                            <td className="p-4 align-top w-1/4">
-                                                <div className="font-medium text-slate-200">{prov.first_name} {prov.last_name}</div>
-                                                <div className="text-xs text-slate-400 mt-1">{prov.email}</div>
+                                        <tr key={prov.id} className="border-b border-border/50 hover:bg-secondary/20 transition-colors">
+                                            <td className="p-4 align-top">
+                                                <div className="font-medium text-textPrimary">{prov.first_name} {prov.last_name}</div>
+                                                <div className="text-xs text-textSecondary mt-1">{prov.email}</div>
                                             </td>
-                                            <td className="p-4 align-top w-1/4">
+                                            <td className="p-4 align-top">
+                                                <span className="px-2 py-0.5 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 rounded text-[10px] font-bold uppercase">
+                                                    {prov.course_interested || 'VARIOUS'}
+                                                </span>
+                                            </td>
+                                            <td className="p-4 align-top">
                                                 <div className="text-emerald-400 font-bold tracking-wide">₹ {parseFloat(prov.fee_amount).toLocaleString('en-IN')}</div>
-                                                <div className="text-xs text-amber-500/80 mt-1">
-                                                    Due: {new Date(prov.fee_deadline).toLocaleDateString()}
+                                                <div className="text-[10px] text-emerald-500/80 font-medium mt-1 uppercase">
+                                                    RECORDED: {new Date(prov.fee_deadline).toLocaleDateString()}
                                                 </div>
                                             </td>
-                                            <td className="p-4 align-top w-1/2" colSpan="2">
-                                                {selectedAppId === prov.id ? (
-                                                    <div className="bg-slate-900/50 p-4 rounded-xl border border-indigo-500/30 shadow-inner">
-                                                        <h4 className="text-sm font-medium text-indigo-300 mb-3 border-b border-indigo-500/20 pb-2">Academic Allocation</h4>
-                                                        <div className="grid grid-cols-2 gap-3 mb-4">
-                                                            <div className="col-span-2 sm:col-span-1">
-                                                                <label className="text-xs text-slate-400 block mb-1">Batch Year</label>
-                                                                <select
-                                                                    className="w-full bg-slate-800 border border-slate-600 rounded-lg px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-indigo-500"
-                                                                    value={enrollForm.batch_id}
-                                                                    onChange={e => setEnrollForm({ ...enrollForm, batch_id: e.target.value })}
-                                                                >
-                                                                    <option value="">Select Batch...</option>
-                                                                    {setupData.batches.map(b => <option key={b.id} value={b.id}>{b.name} ({b.entry_year})</option>)}
-                                                                </select>
-                                                            </div>
-                                                            <div className="col-span-2 sm:col-span-1">
-                                                                <label className="text-xs text-slate-400 block mb-1">Semester</label>
-                                                                <select
-                                                                    className="w-full bg-slate-800 border border-slate-600 rounded-lg px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-indigo-500"
-                                                                    value={enrollForm.semester_id}
-                                                                    onChange={e => setEnrollForm({ ...enrollForm, semester_id: e.target.value })}
-                                                                >
-                                                                    <option value="">Select Semester...</option>
-                                                                    {setupData.semesters.map(s => <option key={s.id} value={s.id}>{s.name} ({s.semester_number})</option>)}
-                                                                </select>
-                                                            </div>
-                                                            <div className="col-span-2">
-                                                                <label className="text-xs text-slate-400 block mb-1">Section Assignment</label>
-                                                                <select
-                                                                    className="w-full bg-slate-800 border border-slate-600 rounded-lg px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-indigo-500"
-                                                                    value={enrollForm.section_id}
-                                                                    onChange={e => setEnrollForm({ ...enrollForm, section_id: e.target.value })}
-                                                                    disabled={!enrollForm.batch_id || !enrollForm.semester_id}
-                                                                >
-                                                                    <option value="">Select Section...</option>
-                                                                    {sections.filter(sec =>
-                                                                        sec.batch === setupData.batches.find(b => b.id === enrollForm.batch_id)?.name &&
-                                                                        sec.semester === setupData.semesters.find(s => s.id === enrollForm.semester_id)?.name
-                                                                    ).map(sec => <option key={sec.id} value={sec.id}>{sec.name} (Cap: {sec.capacity})</option>)}
-                                                                </select>
-                                                            </div>
-                                                        </div>
-
-                                                        <div className="flex items-center justify-end gap-3 mt-4 pt-3 border-t border-slate-700">
-                                                            <button
-                                                                onClick={() => setSelectedAppId(null)}
-                                                                className="text-xs font-medium text-slate-400 hover:text-slate-200 transition-colors"
-                                                            >
-                                                                Cancel
-                                                            </button>
-                                                            <button
-                                                                onClick={() => handleEnrollment(prov.id)}
-                                                                disabled={isActionLoading}
-                                                                className="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all shadow-lg shadow-indigo-500/20 disabled:opacity-50 flex items-center gap-2"
-                                                            >
-                                                                {isActionLoading ? 'Processing...' : '💳 Confirm Fee & Enroll'}
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                ) : (
-                                                    <div className="flex justify-end h-full">
-                                                        <button
-                                                            onClick={() => {
-                                                                setSelectedAppId(prov.id);
-                                                                setEnrollForm({ batch_id: '', semester_id: '', section_id: '' });
-                                                            }}
-                                                            className="bg-indigo-500/20 hover:bg-indigo-500 hover:text-white text-indigo-400 px-4 py-2 rounded-xl text-sm font-medium transition-all border border-indigo-500/50 shadow-sm"
-                                                        >
-                                                            Process Enrollment &rarr;
-                                                        </button>
-                                                    </div>
-                                                )}
+                                            <td className="p-4 align-top text-right">
+                                                <span className="px-3 py-1 bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 rounded-lg text-[10px] font-bold uppercase tracking-widest">
+                                                    Enrolled
+                                                </span>
                                             </td>
                                         </tr>
                                     ))}
                                     {provisionals.filter(p => !p.is_paid).length === 0 && (
                                         <tr>
-                                            <td colSpan="4" className="p-8 text-center text-slate-500">
+                                            <td colSpan="4" className="p-8 text-center text-textSecondary">
                                                 <span className="text-4xl mb-3 block opacity-50">🎓</span>
                                                 <p>No pending provisional enrollments.</p>
                                             </td>
@@ -395,9 +322,10 @@ const Admissions = () => {
                     {activeTab === 'logs' && (
                         <div className="overflow-x-auto">
                             <table className="w-full text-left">
-                                <thead className="bg-[#1e293b] text-slate-300 text-sm border-b border-slate-700">
+                                <thead className="bg-surface text-textPrimary text-sm border-b border-border">
                                     <tr>
                                         <th className="p-4 font-semibold rounded-tl-xl align-top text-left">Applicant</th>
+                                        <th className="p-4 font-semibold align-top text-center">Program</th>
                                         <th className="p-4 font-semibold align-top text-center w-32">Decision</th>
                                         <th className="p-4 font-semibold align-top">Processed By (IT Admin)</th>
                                         <th className="p-4 font-semibold rounded-tr-xl align-top text-right">Timestamp</th>
@@ -405,10 +333,15 @@ const Admissions = () => {
                                 </thead>
                                 <tbody>
                                     {applications.filter(a => a.status !== 'pending').map(app => (
-                                        <tr key={app.id} className="border-b border-slate-700/50 hover:bg-slate-700/20 transition-colors">
+                                        <tr key={app.id} className="border-b border-border/50 hover:bg-secondary/20 transition-colors">
                                             <td className="p-4 align-top">
-                                                <div className="font-medium text-slate-200">{app.first_name} {app.last_name}</div>
-                                                <div className="text-xs text-slate-500 mt-0.5">{app.email}</div>
+                                                <div className="font-medium text-textPrimary">{app.first_name} {app.last_name}</div>
+                                                <div className="text-xs text-textSecondary mt-0.5">{app.email}</div>
+                                            </td>
+                                            <td className="p-4 align-top text-center">
+                                                <span className="px-2 py-0.5 bg-primary/10 text-primary border border-primary/20 rounded text-[10px] font-bold">
+                                                    {app.course_interested || 'VAR'}
+                                                </span>
                                             </td>
                                             <td className="p-4 align-top text-center">
                                                 <span className={`inline-block px-2.5 py-1 border rounded-md text-xs font-semibold uppercase tracking-wider ${app.status === 'accepted'
@@ -417,20 +350,34 @@ const Admissions = () => {
                                                     }`}>
                                                     {app.status}
                                                 </span>
+                                                {app.status === 'accepted' && (
+                                                    <div className="mt-2">
+                                                        <button 
+                                                            onClick={() => {
+                                                                const regNo = `26${app.course_interested || 'GEN'}${app.id.split('-')[0].toUpperCase().slice(0, 4)}`;
+                                                                navigator.clipboard.writeText(`Email: ${app.email}\nRegNo: ${regNo}\nPassword: ${regNo}`);
+                                                                showToast('Login credentials copied to clipboard!');
+                                                            }}
+                                                            className="text-[10px] text-primary hover:underline flex items-center justify-center gap-1 mx-auto"
+                                                        >
+                                                            <span>📋</span> Copy Login Info
+                                                        </button>
+                                                    </div>
+                                                )}
                                             </td>
                                             <td className="p-4 align-top">
                                                 <div className="flex items-center gap-2">
-                                                    <div className="w-6 h-6 rounded-full bg-slate-700 flex items-center justify-center text-xs text-slate-300 font-bold border border-slate-600">
+                                                    <div className="w-6 h-6 rounded-full bg-secondary flex items-center justify-center text-xs text-textPrimary font-bold border border-border">
                                                         {(app.approved_by_name?.charAt(0) || '?').toUpperCase()}
                                                     </div>
-                                                    <span className="text-sm font-medium text-slate-300">{app.approved_by_name || 'System Auto'}</span>
+                                                    <span className="text-sm font-medium text-textPrimary">{app.approved_by_name || 'System'}</span>
                                                 </div>
                                             </td>
                                             <td className="p-4 align-top text-right w-40">
-                                                <div className="text-sm text-slate-300">
+                                                <div className="text-sm text-textPrimary font-mono">
                                                     {app.decision_date ? new Date(app.decision_date).toLocaleDateString() : 'N/A'}
                                                 </div>
-                                                <div className="text-xs text-slate-500 mt-0.5">
+                                                <div className="text-[10px] text-textSecondary font-medium uppercase mt-0.5 tracking-tighter">
                                                     {app.decision_date ? new Date(app.decision_date).toLocaleTimeString() : ''}
                                                 </div>
                                             </td>
@@ -438,7 +385,7 @@ const Admissions = () => {
                                     ))}
                                     {applications.filter(a => a.status !== 'pending').length === 0 && (
                                         <tr>
-                                            <td colSpan="4" className="p-8 text-center text-slate-500">
+                                            <td colSpan="4" className="p-8 text-center text-textSecondary">
                                                 <span className="text-4xl mb-3 block opacity-50">📂</span>
                                                 <p>No historical decisions found in the audit log.</p>
                                             </td>

@@ -1,0 +1,194 @@
+/* Courses.css - Extracted Styles for Courses.jsx */
+
+.courses-wrapper {
+  @apply bg-background min-h-screen pb-20;
+}
+
+/* Banner */
+.courses-banner {
+  @apply bg-primary/5 border-b border-border/50 py-16 px-6 relative overflow-hidden;
+}
+
+.courses-banner-accent {
+  @apply absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-[100px] pointer-events-none;
+}
+
+.courses-banner-content {
+  @apply max-w-7xl mx-auto text-center relative z-10;
+}
+
+.courses-banner-title {
+  @apply text-4xl md:text-5xl font-extrabold text-blue-700 drop-shadow-sm tracking-tight mb-4;
+}
+
+.courses-banner-desc {
+  @apply text-lg text-[#444] max-w-2xl mx-auto;
+}
+
+/* Main Container */
+.courses-container {
+  @apply max-w-7xl mx-auto px-4 md:px-8 mt-12;
+}
+
+/* Category Cards */
+.courses-grid {
+  @apply grid grid-cols-2 md:grid-cols-4 gap-6 mb-16;
+}
+
+.category-card {
+  @apply p-6 rounded-2xl border text-center cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+}
+
+.category-card-active {
+  @apply bg-primary border-primary text-primary-foreground shadow-lg shadow-primary/20;
+}
+
+.category-card-inactive {
+  @apply bg-surface border-border/50 text-textPrimary hover:border-primary/50;
+}
+
+.category-title {
+  @apply text-lg font-bold;
+}
+
+.category-link {
+  @apply text-sm mt-2;
+}
+
+.category-link-active {
+  @apply text-primary-foreground/80;
+}
+
+.category-link-inactive {
+  @apply text-textSecondary;
+}
+
+/* Search Bar & Tabs */
+.courses-search-bar {
+  @apply flex flex-col md:flex-row justify-between items-center gap-6 mb-8 bg-surface p-4 rounded-2xl border border-border/50 shadow-sm;
+}
+
+.courses-filter-tabs {
+  @apply flex flex-wrap gap-2 w-full md:w-auto;
+}
+
+.filter-btn {
+  @apply px-4 py-2 rounded-lg text-sm font-semibold transition-colors;
+}
+
+.filter-btn-active {
+  @apply bg-primary/10 text-primary border border-primary/20;
+}
+
+.filter-btn-inactive {
+  @apply text-textSecondary hover:bg-secondary hover:text-textPrimary;
+}
+
+.search-wrapper {
+  @apply relative w-full md:w-80;
+}
+
+.search-input {
+  @apply w-full py-2.5 pl-4 pr-10 rounded-xl border border-border/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors bg-background text-foreground;
+}
+
+.search-icon {
+  @apply absolute right-3 top-1/2 -translate-y-1/2 text-textSecondary;
+}
+
+/* Table */
+.table-container {
+  @apply bg-surface rounded-3xl border border-border/50 shadow-sm overflow-hidden;
+}
+
+.table-header {
+  @apply p-6 border-b border-border/50 bg-secondary/30;
+}
+
+.table-title {
+  @apply text-2xl font-bold flex items-center gap-3;
+}
+
+.table-scroll {
+  @apply overflow-x-auto;
+}
+
+.courses-table {
+  @apply w-full text-left border-collapse min-w-[1000px];
+}
+
+.courses-th {
+  @apply px-6 py-4 font-semibold;
+}
+
+.table-head-row {
+  @apply bg-secondary/10 text-textSecondary text-sm uppercase tracking-wider border-b border-border/50;
+}
+
+.table-body {
+  @apply divide-y divide-border/50;
+}
+
+.tr-loading {
+  @apply px-6 py-12 text-center text-textSecondary;
+}
+
+.spinner-content {
+  @apply animate-pulse flex flex-col items-center gap-3;
+}
+
+.spinner {
+  @apply w-8 h-8 rounded-full border-4 border-primary border-t-transparent animate-spin;
+}
+
+.tr-empty {
+  @apply px-6 py-12 text-center text-textSecondary font-medium;
+}
+
+.course-row {
+  @apply hover:bg-secondary/20 transition-colors;
+}
+
+.td-cell {
+  @apply px-6 py-5;
+}
+
+.course-badge {
+  @apply text-xs font-bold text-accent uppercase tracking-wider mb-1 block;
+}
+
+.course-name {
+  @apply font-bold text-textPrimary text-base;
+}
+
+.td-text {
+  @apply text-textSecondary font-medium;
+}
+
+.td-text-light {
+  @apply text-textSecondary;
+}
+
+.status-badge {
+  @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-600 border border-emerald-500/20;
+}
+
+.status-dot {
+  @apply w-1.5 h-1.5 rounded-full bg-emerald-500;
+}
+
+.actions-wrapper {
+  @apply flex items-center justify-center gap-2;
+}
+
+.btn-secondary {
+  @apply px-3 py-1.5 text-xs font-semibold rounded-lg bg-surface border border-border/80 hover:bg-secondary text-textPrimary transition-colors;
+}
+
+.btn-primary {
+  @apply px-3 py-1.5 text-xs font-bold rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm transition-colors;
+}
+
+.btn-accent {
+  @apply px-3 py-1.5 text-xs font-semibold rounded-lg bg-accent/10 border border-accent/20 hover:bg-accent hover:text-white text-accent transition-colors;
+}
